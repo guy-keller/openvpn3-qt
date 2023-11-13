@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=OpenVPN3
+Exec=/opt/openvpn3-qt/other/ovpn3.sh
+Icon=/opt/openvpn3-qt/other/ovpn3.png
+Terminal=false
+Type=Application
+StartupWMClass=OpenVPN3
+Comment=Open VPN - Virtual Private Network
