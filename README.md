@@ -29,5 +29,19 @@ git clone https://github.com/guy-keller/openvpn3-qt.git
 cd openvpn3-qt && chmod +x install.sh && ./install.sh
 ```
 
-Supports: Debian, Ubuntu, Fedora and RHEL
+Supports: Debian, Ubuntu, Fedora and RHEL  
 Desktop Environment: Gnome
+
+### Screenshots
+
+Shortcut:    
+<img src="other/assets/shortcut.png" width="450" heigth="200">
+
+UI - Fields:  
+<img src="other/assets/ui-1.png" width="450" heigth="200">
+
+UI - Connect:  
+<img src="other/assets/ui-2.png" width="450" heigth="200">
+
+UI - Connected:  
+<img src="other/assets/ui-3.png" width="450" heigth="200">
