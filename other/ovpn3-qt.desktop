@@ -1,8 +1,11 @@
 [Desktop Entry]
-Name=OpenVPN3
-Exec=/opt/openvpn3-qt/other/ovpn3.sh
+Name=OpenVPN3-QT
+Exec=/opt/openvpn3-qt/other/ovpn3-qt.sh
 Icon=/opt/openvpn3-qt/other/ovpn3.png
 Terminal=false
 Type=Application
-StartupWMClass=OpenVPN3
+StartupWMClass=ovpn3-qt
+StartupNotify=true
 Comment=Open VPN - Virtual Private Network
+MimeType=application/txt;application/x-openvpn-profile;
+Categories=Network

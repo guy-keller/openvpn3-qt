@@ -3,10 +3,10 @@ import sys
 from PyQt6 import QtWidgets, uic
 from PyQt6.QtCore import QDir, QProcess
 from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QFileDialog, QLabel
+from PyQt6.QtWidgets import QFileDialog, QLabel, QMainWindow, QPushButton, QLineEdit
 
 
-class MainWindow(QtWidgets.QMainWindow):
+class MainWindow(QMainWindow):
     status: QLabel = None
     process: QProcess = None
 
@@ -20,15 +20,15 @@ class MainWindow(QtWidgets.QMainWindow):
         super().__init__(*args, **kwargs)
         uic.loadUi("ui/form.ui", self)
 
-        self.buttonOpen = self.findChild(QtWidgets.QPushButton, 'buttonOpen')
+        self.buttonOpen = self.findChild(QPushButton, 'buttonOpen')
         self.buttonOpen.clicked.connect(self.open_button_clicked)
 
-        self.buttonConnect = self.findChild(QtWidgets.QPushButton, 'buttonConnect')
+        self.buttonConnect = self.findChild(QPushButton, 'buttonConnect')
         self.buttonConnect.clicked.connect(self.connect_button_clicked)
 
-        self.editUser = self.findChild(QtWidgets.QLineEdit, 'editUser')
-        self.editPassword = self.findChild(QtWidgets.QLineEdit, 'editPassword')
-        self.status = self.findChild(QtWidgets.QLabel, 'status')
+        self.editUser = self.findChild(QLineEdit, 'editUser')
+        self.editPassword = self.findChild(QLineEdit, 'editPassword')
+        self.status = self.findChild(QLabel, 'status')
 
     def open_button_clicked(self) -> None:
         print("main :: open_button_clicked")
@@ -81,13 +81,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def handle_disconnect(self, path: str) -> None:
         print("main :: handle_disconnect : ", path)
-        self.buttonConnect.setText("Connect")
-        self.buttonConnect.setDisabled(False)
+        self.buttonConnect.setDisabled(True)
+        self.buttonConnect.setText("Disconnecting..")
+        self.status.setToolTip("Please wait..")
+        self.status.setText("Please wait..")
         cmd_to_run: list[str] = ["-c", " openvpn3 session-manage --path " + path + " --disconnect "]
         self.execute_cmd(cmd_to_run)
 
     def execute_cmd(self, command_to_run: list[str]):
-        print("main :: do_execute: ", command_to_run)
+        print("main :: execute_cmd: ", command_to_run)
         self.process = QProcess()
         self.process.finished.connect(self.handle_finished)
         self.process.readyReadStandardError.connect(self.handle_error_data)
@@ -159,7 +161,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.status.setToolTip(self.error_msg)
         else:
             self.status.setText("Ready..")
-            self.status.setToolTip("Ready..")
+            self.status.setToolTip(self.ovpn_file_path)
         # defaults regardless of what has happened
         self.buttonOpen.setDisabled(False)
         self.buttonConnect.setText("Connect")
@@ -169,8 +171,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
 app = QtWidgets.QApplication(sys.argv)
 icon = QIcon("assets/ovpn3.png")
+
+app.setApplicationName("OpenVPN3-QT")
+app.setWindowIcon(icon)
+
 window = MainWindow()
-window.setFixedSize(424, 188)
 window.setWindowIcon(icon)
+window.setWindowTitle("OpenVPN3-QT")
+
+window.setFixedSize(424, 188)
 window.show()
-app.exec()
+
+sys.exit(app.exec())
