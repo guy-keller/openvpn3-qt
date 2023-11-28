@@ -11,7 +11,7 @@ cd /tmp
 dpkg-deb --build openvpn3-qt
 
 ls /tmp/openvpn3-qt.deb
-dpkg -c openvpn3.deb
+dpkg -c openvpn3-qt.deb
 
 rm -rf /tmp/openvpn3-qt
 echo "deb package created on /tmp"

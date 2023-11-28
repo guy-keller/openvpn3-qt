@@ -2,3 +2,7 @@
 
 rm -rf /opt/openvpn3-qt/
 rm -rf /usr/share/applications/ovpn3-qt.desktop
+
+update-desktop-database /usr/share/applications
+xdg-desktop-menu forceupdate
+
