@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -rf /tmp/openvpn3-qt
 
 mkdir -p /tmp/openvpn3-qt/opt/
 cd /tmp/openvpn3-qt/opt/
