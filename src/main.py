@@ -1,9 +1,11 @@
+import random
 import sys
 
 from PyQt6 import QtWidgets, uic
+from PyQt6 import QtCore
 from PyQt6.QtCore import QDir, QProcess
 from PyQt6.QtGui import QIcon
-from PyQt6.QtWidgets import QFileDialog, QLabel, QMainWindow, QPushButton, QLineEdit
+from PyQt6.QtWidgets import QFileDialog, QLabel, QMainWindow, QPushButton, QLineEdit, QInputDialog
 
 
 class MainWindow(QMainWindow):
@@ -112,6 +114,8 @@ class MainWindow(QMainWindow):
             self.handle_auth_user()
         elif (data.find("Auth Password") >= 0):
             self.handle_auth_password()
+        elif (data.find("MFA") >= 0):
+            self.handle_mfa()
         elif (data.find("Connected") >= 0):
             self.is_connected = True
         elif (data.find("shutdown") >= 0):
@@ -136,6 +140,16 @@ class MainWindow(QMainWindow):
         password = self.findChild(QtWidgets.QLineEdit, 'editPassword').text()
         password_cmd = password + "\n"
         self.process.write(password_cmd.encode())
+        self.process.waitForBytesWritten()
+
+    def handle_mfa(self) -> None:
+        result = QInputDialog.getText(self, "MFA", "MFA Code:", QLineEdit.EchoMode.Normal, "Enter MFA")
+        mfa_value = "" + str(random.randrange(100,999, 2)) + "\n"
+        if (result[1]):
+            value = result[0]
+            if (len(value) > 0):
+              mfa_value = value + "\n"
+        self.process.write(mfa_value.encode())
         self.process.waitForBytesWritten()
 
     def handle_finished(self) -> None:
