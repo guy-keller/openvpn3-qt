@@ -2,7 +2,6 @@ import random
 import sys
 
 from PyQt6 import QtWidgets, uic
-from PyQt6 import QtCore
 from PyQt6.QtCore import QDir, QProcess
 from PyQt6.QtGui import QIcon
 from PyQt6.QtWidgets import QFileDialog, QLabel, QMainWindow, QPushButton, QLineEdit, QInputDialog
@@ -184,7 +183,7 @@ class MainWindow(QMainWindow):
 
 
 app = QtWidgets.QApplication(sys.argv)
-icon = QIcon("assets/ovpn3.png")
+icon = QIcon("assets/openvpn3-qt.png")
 
 app.setApplicationName("OpenVPN3-QT")
 app.setWindowIcon(icon)
