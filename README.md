@@ -25,9 +25,9 @@ openvpn3 session-manage --path "/net/openvpn/v3/sessions/UUID_FROM_SESSIONS_LIST
 
 Once you know that openvpn3 is working, give this QT client a go!  
 
-To install copy and paste the following commands in a terminal:
+To install copy and paste the following command in a terminal window:
 ```shell
-curl -s "https://raw.githubusercontent.com/guy-keller/openvpn3-qt/1.3.1/install.sh" | bash
+curl -s "https://raw.githubusercontent.com/guy-keller/openvpn3-qt/1.3.2/install.sh" | bash
 ```
 
 After running the commands above you are good to go.  
