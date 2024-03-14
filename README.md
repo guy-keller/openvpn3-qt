@@ -1,6 +1,6 @@
 OpenVPN3-QT 
 ============
-OpenVPN3 QT Client written in Python3.
+A simple OpenVPN3 Client written in Python3 & QT.
 
 ## OpenVPN 3
 First and foremost, please download and install OpenVPN 3 from here:  
@@ -27,9 +27,7 @@ Once you know that openvpn3 is working, give this QT client a go!
 
 To install copy and paste the following commands in a terminal:
 ```shell
-cd /opt && sudo mkdir openvpn3-qt && sudo chmod a+rw openvpn3-qt
-git clone https://github.com/guy-keller/openvpn3-qt.git
-cd openvpn3-qt && chmod +x install.sh && ./install.sh
+curl -s "https://raw.githubusercontent.com/guy-keller/openvpn3-qt/master/install.sh" | bash
 ```
 
 After running the commands above you are good to go.  
@@ -57,7 +55,7 @@ UI - Connected:
 Paste the following in a terminal:
 ```shell
 sudo rm -rf /opt/openvpn3-qt/
-sudo rm -rf /usr/share/applications/ovpn3-qt.desktop
+sudo rm -rf /usr/share/applications/openvpn3-qt.desktop
 ```
 
 ### Disclaimer
