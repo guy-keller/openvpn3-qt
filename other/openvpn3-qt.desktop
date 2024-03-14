@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=OpenVPN3-QT
-Exec=/opt/openvpn3-qt/other/ovpn3-qt.sh
-Icon=/opt/openvpn3-qt/other/ovpn3.png
+Exec=/opt/openvpn3-qt/other/openvpn3-qt.sh
+Icon=/opt/openvpn3-qt/other/openvpn3.png
 Terminal=false
 Type=Application
 StartupWMClass=python3

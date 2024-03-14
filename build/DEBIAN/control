@@ -1,8 +1,0 @@
-Package: openvpn3-qt
-Version: 1.2-1
-Section: utils
-Priority: optional
-Architecture: all
-Maintainer: Guy Keller <guy_keller@hotmail.com>
-Description: A very simple OpenVPN 3 QT Client written in Python for Linux
-Depends: python3 (>= 3.11.0), python3-pip (>= 23.0.0)
