@@ -33,16 +33,16 @@ class MainWindow(QMainWindow):
 
     def open_button_clicked(self) -> None:
         print("main :: open_button_clicked")
-        dialog = QFileDialog()
-        dialog.setFileMode(QFileDialog.FileMode.AnyFile)
 
-        my_filter = QDir.Filter(QDir.Filter.Files)
-        dialog.setDirectory(QDir.home())
-        dialog.setFilter(my_filter)
-        dialog.setNameFilter("*.ovpn")
+        filenames = QFileDialog.getOpenFileName(
+            parent=self,
+            caption="Select OVPN file",
+            filter="*.ovpn",
+            options=QFileDialog.Option.DontUseNativeDialog
+        )
 
-        if dialog.exec():
-            filenames = dialog.selectedFiles()
+        if filenames and len(filenames) > 0 and filenames[0] != "":
+            print("main:: open_button_clicked :: filenames:", filenames)
             self.status.setText(f"File: {filenames[0]}")
             self.status.setToolTip(filenames[0])
             self.ovpn_file_path = filenames[0]
