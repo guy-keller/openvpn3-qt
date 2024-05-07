@@ -27,14 +27,14 @@ Once you know that openvpn3 is working, give this QT client a go!
 
 To install copy and paste the following command in a terminal window:
 ```shell
-curl -s "https://raw.githubusercontent.com/guy-keller/openvpn3-qt/1.3.2/install.sh" | bash
+curl -s "https://raw.githubusercontent.com/guy-keller/openvpn3-qt/1.3.4/install.sh" | bash
 ```
 
-After running the commands above you are good to go.  
+After running the command above you are good to go.  
 Press the 'super' key, and look for the OpenVPN3 shortcut.
 
 Supports: Debian, Ubuntu, Fedora and RHEL    
-Desktop Environment: Gnome
+Desktop Environment: Gnome, KDE
 
 ### Screenshots
 
